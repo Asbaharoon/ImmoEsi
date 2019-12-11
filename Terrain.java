@@ -4,28 +4,35 @@ public class Terrain extends Bien{
 
 	public Terrain(Proprietaire proprietaire, boolean meuble, int nbrPieces, String wilaya, float superficie, Transaction transaction,
 			int negociabilite,  Date dateDajout, String photoUrl, boolean visibilte,
-			float prix,String descriptif, String statusJuridique) {
+			float prix,String descriptif, String statusJuridique, int facades) {
 		super(proprietaire, wilaya, superficie, transaction, negociabilite, descriptif, dateDajout, photoUrl,
 				 statusJuridique, visibilte, prix);
 		this.statusJuridique = statusJuridique;
+		this.facades = facades;
 		
 	}
 	
 	private String statusJuridique ;
-	
+	private int facades;
 	
 	public void afficher() { 
-		System.out.println("Ce bien est un " +this.getType() +" \n son proprietere est : " + this.getProprietaire() + "\n "
-				+ "\n"  + "Status : \n "  + "\n Le nombre de pieces est : " + this.getNbrPieces()
-				+ " \n" + " ce bien est situe dans la wilaya de : " + this.getWilaya() + "\n" + " Sa superficie est egale a : " + this.getSuperficie()+ 
-				"\n cet article est pour : " + this.getTransaction() + "\n elle negociable de " +this.getNegociabilite() + "DA" + 
-				"\n elle a ete ajoute le : " + this.getDateDajout() + "\n un liean vers ses photos + " + this.getPhotoUrl() 
-				+ "Le prix est de" + this.getPrix() + "DA" + "\n status juridique :" + this.getDescriptif()  + "\n ceci est son descriptif : \n" + this.getDescriptif() );
+		super.afficher();
+		System.out.println("\n Ce Terrain a comme statusJuridique :" + statusJuridique +  "\nIl a : " + facades + " facades");
 	}
 	
 	@Override
-	public float PrixFinal() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double PrixFinal() {
+		if(super.getTransaction()==Transaction.VENTE) {
+			
+		if (facades >= 1) {
+		return (super.PrixFinal() + 0.05 * facades);
+	}
+		else {
+			return super.PrixFinal();
+		}
+	}
+		else { 
+			return 0 ;
+		}
 	}
 }

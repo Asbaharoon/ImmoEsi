@@ -1,5 +1,5 @@
 import java.util.*;
-public class Agence {
+public class Agence{
 	
 	public Agence () {
 		
@@ -15,10 +15,13 @@ public class Agence {
 	}
 	
 	public float calculerPrix(Bien b ) {
+		
 		return 0;
 		
 	}
-	public void trier (Critere c) {
+	@SuppressWarnings("unchecked")
+	public void trier () {// Trier les biens selon la date d'ajout 
+		Collections.sort(this.biens);
 		
 	}
 	public void visualiser(Bien b) { 
@@ -135,4 +138,11 @@ public class Agence {
 		this.biens = biens;
 	}
 
+	
 }
+
+
+
+	
+
+

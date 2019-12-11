@@ -23,11 +23,13 @@ public class Utilisateur extends Agence {
 		
 	}
 	public Bien[] recherche(Critere[] criteres) {
-		return null; 
+		return null;
+		
+	
 		
 	}
-	public void visualiser(Agence a , Bien b) { 
-		
+	public void visualiser(Bien b) { 
+		b.afficher();
 	}
 	
 }

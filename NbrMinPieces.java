@@ -5,6 +5,10 @@ public class NbrMinPieces {
 	public NbrMinPieces(int nbr) {
 		this.nbr = nbr;
 		
+	}
+
+	public int getNbr() {
+		return nbr;
 	};
 	
 }

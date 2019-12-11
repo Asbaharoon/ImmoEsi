@@ -34,10 +34,32 @@ public class Maison extends Habitable{
 	}
 
 	@Override
-	public float PrixFinal() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double PrixFinal() {
+		
+		if (super.getTransaction() == Transaction.VENTE)  {
+			
+		if ( dispoGarage || dispoPiscine || dispoJardin ) { 
+			
+			return (super.PrixFinal() + 0.05 *super.getPrix());
+		}
+		else { 
+			return super.PrixFinal();
+		}
 	}
+		if(super.getTransaction() == Transaction.LOCATION) { 
+			if(dispoPiscine) { 
+				return (super.PrixFinal() + 50000);
+			}
+			else { 
+				return super.PrixFinal();
+			}
+		}
+		
+		else {
+			return 0 ;
+		}
+		
 	
+	}
 
 }

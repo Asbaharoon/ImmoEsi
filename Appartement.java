@@ -22,9 +22,25 @@ public class Appartement extends Habitable {
 	}
 
 	@Override
-	public float PrixFinal() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public double PrixFinal() {
+		if (super.getTransaction() == Transaction.VENTE) {
+			if (etage <=2) {
+			return (super.PrixFinal() + 50000 ) ;
+		}
+		}
+		if (super.getTransaction()== Transaction.LOCATION) {
+		if (etage <= 2) { 
+			return (super.PrixFinal() + 5000);
+		}
+		}
+		if ((dispoAscenseur == false) && (etage >= 6)) { 
+			return (super.PrixFinal() + super.getPrix()*500);
+		}
+		else { 
+			return 0;
+		}
+		
+	
 
+}
 }

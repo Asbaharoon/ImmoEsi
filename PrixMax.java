@@ -5,5 +5,8 @@ public class PrixMax extends Critere   {
 		this.prix_max = prix;  
 		
 	}
+	public float getPrix_max() {
+		return prix_max;
+	}
 	
 }
